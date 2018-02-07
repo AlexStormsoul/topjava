@@ -38,6 +38,10 @@ public class MealWithExceed {
         return exceed;
     }
 
+    public String getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "UserMealWithExceed{" +
@@ -48,3 +52,4 @@ public class MealWithExceed {
                 '}';
     }
 }
+

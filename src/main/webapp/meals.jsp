@@ -6,7 +6,7 @@
 </head>
 <body>
 <br><br>
-<button>Добавить</button>
+<a href="edit.jsp"> <button >Добавить</button></a>
 <table cellspacing="20">
     <tr>
         <td>Дата/Время</td> <td>Описание</td> <td>Калории</td> <td></td> <td></td>
@@ -23,7 +23,7 @@
             <tr  style="color:green">
         </c:otherwise>
     </c:choose>
-        <td>${meal.dateTime.toLocalDate().toString()}  ${meal.dateTime.toLocalTime().toString()} </td> <td>${meal.description} </td> <td>${meal.calories} </td> <td>  <button onclick="">Редактировать</button> </td> <td> <button>Удалить</button> </td>
+        <td>${meal.dateTime.toLocalDate().toString()}  ${meal.dateTime.toLocalTime().toString()} </td> <td>${meal.description} </td> <td>${meal.calories} </td> <td>  <a href="edit.jsp"> Редактировать</a> </td> <td> <a href="meals?id=${meal.id}&action=delete">Удалить</a> </td>
 
     </tr>
 

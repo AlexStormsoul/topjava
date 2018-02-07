@@ -1,4 +1,5 @@
 package ru.javawebinar.topjava.web;
+import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.util.MealsList;
 import ru.javawebinar.topjava.util.MealsUtil;
 
@@ -20,10 +21,18 @@ public class MealServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.debug("redirect to meals");
+        String param = request.getParameter("action");
 
-        request.setAttribute("meals", MealsUtil.getFilteredWithExceeded(MealsList.getMeals(), LocalTime.of(7, 0), LocalTime.of(12, 0), 2000));
-        request.getRequestDispatcher("/meals.jsp").forward(request, response);
+        if (param != null) {
+            if (param.equals("delete")) {
+                  MealsList.deleteMeal((String)request.getAttribute("id"));
+                  response.sendRedirect("meals");
+            }
+        } else {
+            request.setAttribute("meals", MealsUtil.getFilteredWithExceeded(MealsList.getMeals(), LocalTime.of(7, 0), LocalTime.of(22, 0), 2000));
+            request.getRequestDispatcher("/meals.jsp").forward(request, response);
 
-        //response.sendRedirect("meals.jsp");
+            //response.sendRedirect("meals.jsp");
+        }
     }
 }
