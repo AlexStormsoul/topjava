@@ -23,7 +23,7 @@
             <tr  style="color:green">
         </c:otherwise>
     </c:choose>
-        <td>${meal.dateTime.toLocalDate().toString()}  ${meal.dateTime.toLocalTime().toString()} </td> <td>${meal.description} </td> <td>${meal.calories} </td> <td>  <a href="edit.jsp"> Редактировать</a> </td> <td> <a href="meals?id=${meal.id}&action=delete">Удалить</a> </td>
+        <td>${meal.dateTime.toLocalDate().toString()}  ${meal.dateTime.toLocalTime().toString()} </td> <td>${meal.description} </td> <td>${meal.calories} </td> <td>  <a href="meals?id=${meal.id}&action=edit"> Редактировать</a> </td> <td> <a href="meals?id=${meal.id}&action=delete">Удалить</a> </td>
 
     </tr>
 
