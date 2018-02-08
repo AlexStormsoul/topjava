@@ -20,6 +20,13 @@ public class Meal {
         this.id = UUID.randomUUID().toString();
     }
 
+    public Meal(LocalDateTime dateTime, String description, int calories, String id) {
+        this.dateTime = dateTime;
+        this.description = description;
+        this.calories = calories;
+        this.id = id;
+    }
+
     public LocalDateTime getDateTime() {
         return dateTime;
     }

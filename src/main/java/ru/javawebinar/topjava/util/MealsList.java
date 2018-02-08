@@ -33,4 +33,12 @@ public class MealsList {
         meals.remove(id);
     }
 
+    public static Meal getMeal(String id) {
+        return meals.get(id);
+    }
+
+    public static void addMeal(Meal meal) {
+        meals.put(meal.getId(), meal);
+    }
+
 }

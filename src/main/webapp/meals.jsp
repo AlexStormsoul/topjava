@@ -6,7 +6,7 @@
 </head>
 <body>
 <br><br>
-<a href="edit.jsp"> <button >Добавить</button></a>
+<a href="meals?action=edit"> <button >Добавить</button></a>
 <table cellspacing="20">
     <tr>
         <td>Дата/Время</td> <td>Описание</td> <td>Калории</td> <td></td> <td></td>
