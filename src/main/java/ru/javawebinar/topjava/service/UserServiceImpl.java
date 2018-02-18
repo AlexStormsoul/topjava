@@ -33,7 +33,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User get(int id) throws NotFoundException {
-        return checkNotFoundWithId(repository.get(id), id);
+        User user = repository.get(id);
+        checkNotFoundWithId(user != null, id);
+        return user;
     }
 
     @Override
