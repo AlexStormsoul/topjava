@@ -23,7 +23,7 @@ public class InMemoryMealRepositoryImpl implements MealRepository {
 
     @Override
     public Meal save(Meal meal) {
-        if (meal.isNew()) {
+        if (meal.isNew() || meal.getId() == 0) {
             meal.setId(counter.incrementAndGet());
         }
         repository.put(meal.getId(), meal);
