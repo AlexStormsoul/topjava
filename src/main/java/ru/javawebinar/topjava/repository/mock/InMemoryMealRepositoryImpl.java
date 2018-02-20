@@ -6,6 +6,7 @@ import ru.javawebinar.topjava.repository.MealRepository;
 import ru.javawebinar.topjava.util.MealsUtil;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -50,6 +51,7 @@ public class InMemoryMealRepositoryImpl implements MealRepository {
     public Collection<Meal> getAll(int userId) {
         List<Meal> userMeals = repository.values().stream().filter(v1 -> v1.getUserId() == userId).collect(Collectors.toList());
         userMeals.sort((o1, o2) -> o1.getDateTime().compareTo(o2.getDateTime()));
+        Collections.reverse(userMeals);
         return userMeals;
     }
 }

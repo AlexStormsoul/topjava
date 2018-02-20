@@ -20,8 +20,7 @@ public class InMemoryUserRepositoryImpl implements UserRepository {
     @Override
     public boolean delete(int id) {
         log.info("delete {}", id);
-        if (userRepo.get(id) != null) {
-            userRepo.remove(id);
+        if (userRepo.remove(id) != null) {
             return true;
         }
         return false;
