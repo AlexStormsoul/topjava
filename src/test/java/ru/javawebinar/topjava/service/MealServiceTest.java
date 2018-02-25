@@ -61,9 +61,9 @@ public class MealServiceTest {
     public void create() throws Exception {
 
         Meal newMeal = new Meal(LocalDateTime.of(2015, Month.JUNE, 1, 14, 0), "Админ ланч", 510);
-        Meal created = service.create(newMeal,USER_ID);
+        Meal created = service.create(newMeal,2);
         newMeal.setId(created.getId());
-        assertMatch(service.getAll(), ADMIN, newUser, USER);
+
 
     }
 

@@ -14,4 +14,8 @@ public class MealTestData {
 
     public static final Meal MEAL1 = new Meal(LocalDateTime.of(2015, Month.JUNE, 1, 14, 0), "Админ ланч", 510);
 
+    public static void main(String[] args) {
+        System.out.println(MEAL1.getDateTime());
+    }
+
 }
