@@ -35,6 +35,10 @@ public class MealServiceTest {
 
     @Test
     public void get() throws Exception {
+        Meal newMeal = new Meal(LocalDateTime.of(2015, Month.JUNE, 1, 14, 0), "Админ ланч123", 510);
+        Meal created = service.create(newMeal,2);
+        Meal meal = service.get(100003,2);
+        System.out.println(meal);
     }
 
     @Test
@@ -60,7 +64,7 @@ public class MealServiceTest {
     @Test
     public void create() throws Exception {
 
-        Meal newMeal = new Meal(LocalDateTime.of(2015, Month.JUNE, 1, 14, 0), "Админ ланч", 510);
+        Meal newMeal = new Meal(LocalDateTime.of(2015, Month.JUNE, 1, 14, 0), "Админ ланч 2", 510);
         Meal created = service.create(newMeal,2);
         newMeal.setId(created.getId());
 
