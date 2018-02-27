@@ -12,10 +12,9 @@ public class MealTestData {
 
     public static final int MEAL_ID = START_SEQ;
 
-    public static final Meal MEAL1 = new Meal(LocalDateTime.of(2015, Month.JUNE, 1, 14, 0), "Админ ланч", 510);
-
-    public static void main(String[] args) {
-        System.out.println(MEAL1.getDateTime());
-    }
+    public static final Meal MEAL1 = new Meal(START_SEQ + 2,LocalDateTime.of(2015, Month.JUNE, 2, 14, 0), "Юзер ланч", 510);
+    public static final Meal MEAL2 = new Meal(START_SEQ + 3,LocalDateTime.of(2015, Month.JUNE, 3, 14, 0), "Юзер ланч 2", 510);
+    public static final Meal MEAL3 = new Meal(START_SEQ + 4,LocalDateTime.of(2015, Month.JUNE, 1, 14, 0), "Админ ланч", 510);
 
 }
+
