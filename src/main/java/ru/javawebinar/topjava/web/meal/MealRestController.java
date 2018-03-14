@@ -1,25 +1,31 @@
 package ru.javawebinar.topjava.web.meal;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.javawebinar.topjava.AuthorizedUser;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.to.MealWithExceed;
 
+import java.net.URI;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
 @RestController
+@RequestMapping(MealRestController.REST_URL)
 public class MealRestController extends AbstractMealController {
+    static final String REST_URL = "/rest/meals";
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public Meal get(int id) {
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Meal get(@PathVariable("id") int id) {
         return super.get(id);
     }
 
-    @DeleteMapping
-    public void delete(int id) {
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable("id") int id) {
         super.delete(id);
     }
 
@@ -28,19 +34,25 @@ public class MealRestController extends AbstractMealController {
         return super.getAll();
     }
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Meal create(Meal meal) {
-        return super.create(meal);
+
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Meal> createMeal(@RequestBody Meal meal) {
+        Meal created = super.create(meal);
+        URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path(REST_URL + "/{id}")
+                .buildAndExpand(created.getId()).toUri();
+
+        return ResponseEntity.created(uriOfNewResource).body(created);
     }
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void update(Meal meal, int id) {
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void update(@RequestBody Meal meal, @PathVariable("id") int id) {
         super.update(meal, id);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<MealWithExceed> getBetween(LocalDate startDate, LocalTime startTime, LocalDate endDate, LocalTime endTime) {
-        return super.getBetween(startDate, startTime, endDate, endTime);
+    @GetMapping(value = "/between", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<MealWithExceed> getBetween(@RequestParam LocalDateTime startDate, @RequestParam LocalDateTime endDate) {
+        return super.getBetween(startDate.toLocalDate(), startDate.toLocalTime(), endDate.toLocalDate(), endDate.toLocalTime());
     }
 
 
