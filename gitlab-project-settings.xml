@@ -1,0 +1,16 @@
+<application>
+  <component name="SettingsState">
+    <option name="host" value="http://gitlab.com" />
+    <option name="token" value="TzPD_zqVqj2xqWhkwB9m" />
+    <option name="projects">
+      <list>
+        <ProjectDto>
+          <option name="httpUrl" value="https://gitlab.com/myprojects2018/familychecklist.git" />
+          <option name="name" value="familychecklist" />
+          <option name="namespace" value="MyProjects" />
+          <option name="sshUrl" value="git@gitlab.com:myprojects2018/familychecklist.git" />
+        </ProjectDto>
+      </list>
+    </option>
+  </component>
+</application>
