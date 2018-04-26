@@ -26,6 +26,10 @@
           <option name="url" value="http://gitlab.com/myprojects2018/familychecklist" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://bitbucket.org/akuzovlev/familychecklist/src/master/" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="D:\projects" />
